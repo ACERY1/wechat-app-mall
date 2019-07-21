@@ -85,39 +85,44 @@ swiper-item image {
   background-color: #F2f2f2;
 }
 .goods-box{
-  width: 339rpx;
-  height: 472rpx;
+  width: 702rpx;
+  height: 840rpx;
   background-color: #fff;
   overflow: hidden;
   margin-bottom: 24rpx;
   border-radius:5px;
+  box-shadow: 0 6px 10px #e2e2e2;
 }
 .goods-box .img-box{
-  width: 339rpx;
-  height: 339rpx;
-  overflow: hidden;
+  width: 702rpx; 
+  height: 640rpx;
 }
 .goods-box .img-box image{
-   width: 339rpx;
-   height: 339rpx;
+   width: 702rpx; 
+   height: 640rpx;
+   
 }
 .goods-box .goods-title{
-  width: 280rpx;
   text-overflow: ellipsis;
   white-space: nowrap;
-  overflow: hidden;
-  font-size: 24rpx;
   padding: 24rpx 0 0rpx 0;
-  color:#000;
+  color: #3f3f3f;
   margin-left: 24rpx;
+  font-size: 30rpx;
+  font-weight: 400; 
+}
+.goods-desc {
+  margin-left: 24rpx;
+  font-size: 26rpx;
+  color:#b3b3b3;
+  font-weight: 300;
 }
 .goods-box .goods-price{
-  width: 280rpx;
   overflow: hidden;
-  font-size: 24rpx;
-  padding: 24rpx 0;
-  color:#e64340;
-  margin-left: 24rpx;
+  font-size: 48rpx;
+  color:#ff8686;
+  margin-right: 24rpx;
+  font-weight: 400;
 }
 .no-more-goods{
   text-align: center;

@@ -38,6 +38,8 @@
         </view>
       </navigator>
     </view> -->
+
+    <!-- 通知 -->
     <view wx:if="{{noticeList}}" class="notice">
       <image class="notice_icon" src="/images/notice.png"></image>
       <swiper wx:if="{{noticeList}}" class="notice_swiper" vertical="true" autoplay="true" circular="true" interval="3000">
@@ -48,7 +50,9 @@
         </navigator>
       </swiper>
     </view>
-    <scroll-view scroll-x>
+
+    <!-- 分类 -->
+    <!-- <scroll-view scroll-x>
       <view class="category-box" style='width:{{category_box_width}}rpx;'>
         <view class="category-list" wx:for="{{categories}}" wx:key="*this">
           <view class="category-column {{activeCategoryId == item.id ? 'type-item-on' : ''}}" bindtap="tabClick" id="{{item.id}}">
@@ -57,9 +61,11 @@
           </view>          
         </view>
       </view>
-    </scroll-view>
+    </scroll-view> -->
   </view>
-  <view class="swiper-container">
+
+  <!-- 滑动banner区 -->
+  <!-- <view class="swiper-container">
     <swiper class="swiper_box" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperchange">
       <block wx:for="{{banners}}" wx:key="id">
         <swiper-item>
@@ -72,10 +78,14 @@
         <view class="dot{{index == swiperCurrent ? ' active' : ''}}"></view>
       </block>
     </view>
-  </view>
+  </view> -->
+
+  <!-- 爆品推荐 -->
   <view class="weui-loadmore weui-loadmore_line" wx:if="{{goodsRecommend.length > 0 && activeCategoryId == 0}}">
     <view class="weui-loadmore__tips weui-loadmore__tips_in-line">爆品推荐</view>
   </view>
+
+  <!-- 推荐 -->
   <view class="goods-container" wx:if="{{goodsRecommend.length > 0 && activeCategoryId == 0}}">
     <view class="goods-box" wx:for-items="{{goodsRecommend}}" wx:key="*this" bindtap="toDetailsTap" data-id="{{item.id}}">
       <view class="img-box">
@@ -88,7 +98,11 @@
       </view>
     </view>
   </view>
-  <ad unit-id="adunit-588264b3e2362e1e"></ad>
+
+  <!-- 广告投放 -->
+  <!-- <ad unit-id="adunit-588264b3e2362e1e"></ad> -->
+
+  <!-- 砍价 -->
   <view wx-if="{{kanjiaList.length > 0 && activeCategoryId == 0}}" class="weui-panel weui-panel_access" style='margin-top:0px;'>
     <view class="weui-panel__hd">疯狂砍价</view>
     <view class="weui-panel__bd">
@@ -110,6 +124,8 @@
       </view>
     </view>
   </view>
+
+  <!-- 拼团 -->
   <block wx:if="{{pingtuanList.length > 0 && activeCategoryId == 0}}">
     <view class='space'></view>
     <view class="weui-loadmore weui-loadmore_line">
@@ -134,19 +150,22 @@
     </view>
   </block>
 
+  <!-- 商品列表 -->
   <view class='space'></view>
-  <view class="weui-loadmore weui-loadmore_line">
+  <!-- 2019年07月21日17:34:42注释了 by acery -->
+  <!-- <view class="weui-loadmore weui-loadmore_line">
     <view class="weui-loadmore__tips weui-loadmore__tips_in-line">商品列表</view>
-  </view>
+  </view> -->
   <view class="goods-container">
     <view class="goods-box" wx:for-items="{{goods}}" wx:key="{{index}}" bindtap="toDetailsTap" data-id="{{item.id}}">
       <view class="img-box">
         <image src="{{item.pic}}_m" class="image" mode="aspectFill" lazy-load="true" />
       </view>
       <view class="goods-title">{{item.name}}</view>
-      <view style='display:flex;'>
+      <view class="goods-desc">{{item.characteristic}}</view>
+      <view style='display:flex;   justify-content: flex-end;'>
         <view class="goods-price">¥ {{item.minPrice}}</view>
-        <view wx:if="{{item.originalPrice && item.originalPrice > 0}}" class="goods-price" style='color:#aaa;text-decoration:line-through'>¥ {{item.originalPrice}}</view>
+        <!-- <view wx:if="{{item.originalPrice && item.originalPrice > 0}}" class="goods-price" style='color:#aaa;text-decoration:line-through'>¥ {{item.originalPrice}}</view> -->
       </view>
     </view>
   </view>
