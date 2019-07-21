@@ -18,6 +18,7 @@
     "pages/withdraw/index",
     "pages/kanjia/index",
     "pages/authorize/index",
+    "pages/authorize/bindmobile",
     "pages/score-excharge/index",
     "pages/asset/index",
     "pages/score/index",
@@ -30,7 +31,8 @@
     "pages/fx/commisionLog",
     "pages/coupons/index",
     "pages/invoice/list",
-    "pages/invoice/apply"
+    "pages/invoice/apply",
+    "pages/deposit/pay"
   ],
   "window": {
     "backgroundTextStyle": "light",

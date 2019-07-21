@@ -3,14 +3,18 @@
 		<image wx:if="{{userInfo && userInfo.avatarUrl}}" class="userinfo-avatar" src="{{ userInfo.avatarUrl }}" background-size="cover"></image>
 		<text class="userinfo-nickname">{{ userInfo.nickName }}</text>
 	</view>
-  <view class="asset">
+  <view wx:if="{{ rechargeOpen }}" class="asset">
     <view class='item' bindtap='goAsset'>
       <view>{{balance}}</view>
-      <view>可用余额</view>
+      <view>余额</view>
+    </view>
+    <view class='item right' bindtap='goAsset'>
+      <view>{{freeze}}</view>
+      <view>冻结</view>
     </view>
     <view class='item right' bindtap='goScore'>
       <view>{{score}}</view>
-      <view>剩余积分</view>
+      <view>积分</view>
     </view>
   </view>
   <view style="height:10rpx;background: #eee;width:100%;"></view>
@@ -39,7 +43,7 @@
       <view class='text'>退款/售后</view>
     </view>
   </view>
-
+  <ad unit-id="adunit-588264b3e2362e1e"></ad>
   <block wx:if="{{vipLevel > 0}}">
   <view style="height:10rpx;background: #eee;width:100%;"></view>
   <view class="my-item" wx:if="{{!apiUserInfoMap.base.isSeller}}">
@@ -92,7 +96,6 @@
   <view class="about" bindtap="aboutUs">
     关于我们
   </view>
-
   <view style="height:20rpx;background: #eee;width:100%;"></view>
   <view wx:if="{{!userMobile}}" class="bind-phone-number">
     <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">绑定手机号码</button>

@@ -2,6 +2,10 @@ const WXAPI = require('../../wxapi/main')
 const app = getApp();
 const WxParse = require('../../wxParse/wxParse.js');
 const regeneratorRuntime = require('../../utils/runtime')
+const CONFIG = require('../../config.js')
+const SelectSizePrefix = "选择："
+
+let videoAd = null; // 视频激励广告
 
 Page({
   data: {
@@ -11,7 +15,7 @@ Page({
     goodsDetail: {},
     swiperCurrent: 0,
     hasMoreSelect: false,
-    selectSize: "选择：",
+    selectSize: SelectSizePrefix,
     selectSizePrice: 0,
     totalScoreToPay: 0,
     shopNum: 0,
@@ -59,7 +63,26 @@ Page({
         });
       }
     })
-    this.reputation(e.id)
+    this.reputation(e.id);
+    // 视频激励广告信息
+    if (wx.createRewardedVideoAd) {
+      videoAd = wx.createRewardedVideoAd({
+        adUnitId: 'adunit-12c4520ad7c062eb'
+      })
+      videoAd.onLoad(() => { console.log('-----------onLoad') })
+      videoAd.onError((err) => { })
+      videoAd.onClose((res) => { 
+        if (res && res.isEnded) {
+          that.helpKanjiaDone();
+        } else {
+          wx.showModal({
+            title: '提示',
+            content: '完整观看完视频才能砍价',
+            showCancel: false
+          })
+        }
+      })
+    }
   },
   onShow (){
     this.getGoodsDetailAndKanjieInfo(this.data.goodsId)
@@ -69,14 +92,14 @@ Page({
     const goodsDetailRes = await WXAPI.goodsDetail(goodsId)
     const goodsKanjiaSetRes = await WXAPI.kanjiaSet(goodsId)
     if (goodsDetailRes.code == 0) {
-      var selectSizeTemp = "";
+      var selectSizeTemp = SelectSizePrefix;
       if (goodsDetailRes.data.properties) {
         for (var i = 0; i < goodsDetailRes.data.properties.length; i++) {
           selectSizeTemp = selectSizeTemp + " " + goodsDetailRes.data.properties[i].name;
         }
         that.setData({
           hasMoreSelect: true,
-          selectSize: that.data.selectSize + selectSizeTemp,
+          selectSize: selectSizeTemp,
           selectSizePrice: goodsDetailRes.data.basicInfo.minPrice,
           totalScoreToPay: goodsDetailRes.data.basicInfo.minScore
         });
@@ -231,8 +254,12 @@ Page({
         goodsId: that.data.goodsDetail.basicInfo.id,
         propertyChildIds: propertyChildIds
       }).then(function(res) {
+        let _price = res.data.price
+        if (that.data.shopType == 'toPingtuan') {
+          _price = res.data.pingtuanPrice
+        }
         that.setData({
-          selectSizePrice: res.data.price,
+          selectSizePrice: _price,
           totalScoreToPay: res.data.score,
           propertyChildIds: propertyChildIds,
           propertyChildNames: propertyChildNames,
@@ -419,9 +446,9 @@ Page({
     shopCarMap.propertyChildIds = this.data.propertyChildIds;
     shopCarMap.label = this.data.propertyChildNames;
     shopCarMap.price = this.data.selectSizePrice;
-    if (shoptype == 'toPingtuan') {
-      shopCarMap.price = this.data.goodsDetail.basicInfo.pingtuanPrice;
-    }
+    // if (shoptype == 'toPingtuan') { // 20190714 拼团价格注释掉
+    //   shopCarMap.price = this.data.goodsDetail.basicInfo.pingtuanPrice;
+    // }
     shopCarMap.score = this.data.totalScoreToPay;
     shopCarMap.left = "";
     shopCarMap.active = true;
@@ -540,6 +567,26 @@ Page({
     });
   },
   helpKanjia() {
+    const _this = this;
+    if (CONFIG.kanjiaRequirePlayAd) {
+      // 显示激励视频广告
+      if (videoAd) {
+        videoAd.show().catch(() => {
+          // 失败重试
+          videoAd.load()
+            .then(() => videoAd.show())
+            .catch(err => {
+              console.log('激励视频 广告显示失败')
+            })
+        })
+      }
+      return;
+    } else {
+      _this.helpKanjiaDone();
+    }
+    
+  },
+  helpKanjiaDone(){
     const _this = this;
     WXAPI.kanjiaHelp(_this.data.kjId, _this.data.kjJoinUid, wx.getStorageSync('token'), '').then(function (res) {
       if (res.code != 0) {
