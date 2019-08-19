@@ -1,0 +1,23 @@
+@import "/wxParse/wxParse.wxss";
+
+.notice {
+  width: 720rpx;
+  padding: 15rpx;
+  font-size: 14px;
+}
+.title {
+  color:chocolate;
+  margin-bottom: 30rpx;
+  text-align: center;
+}
+.text {
+  line-height: 30px;
+}
+
+.discount {
+  padding: 100rpx 30px;
+  display: flex;
+  flex-flow: column nowrap;
+  justify-content: center;
+  align-items: center;
+}

@@ -14,6 +14,7 @@
     "pages/wuliu/index",
     "pages/my/index",
     "pages/notice/show",
+    "pages/article/article",
     "pages/recharge/index",
     "pages/withdraw/index",
     "pages/kanjia/index",
@@ -36,7 +37,7 @@
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#A7D9CF",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle": "black",
     "onReachBottomDistance": 50

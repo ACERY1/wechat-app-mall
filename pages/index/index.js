@@ -11,6 +11,7 @@ Page({
     kanjiaList: [], //砍价商品列表
     pingtuanList: [], //拼团商品列表
     kanjiaGoodsMap: {}, //砍价商品列表
+    cmsArticals: [], // 文章列表
 
     indicatorDots: true,
     autoplay: true,
@@ -63,7 +64,7 @@ Page({
   tapBanner: function(e) {
     if (e.currentTarget.dataset.id != 0) {
       wx.navigateTo({
-        url: "/pages/goods-details/index?id=" + e.currentTarget.dataset.id
+        url: "/pages/article/article?id=" + e.currentTarget.dataset.id
       })
     }
   },
@@ -141,7 +142,17 @@ Page({
           goodsRecommend: res.data
         })
       }      
+    });
+
+    // 获取促销类文章
+    WXAPI.cmsArticles({
+      categoryId: 5317
     })
+      .then(res => {
+        that.setData({
+          cmsArticals: res.data,
+        })
+      })
     that.getCoupons()
     that.getNotice()
     that.kanjiaGoods()

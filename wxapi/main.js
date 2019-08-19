@@ -392,6 +392,10 @@ module.exports = {
   cmsCategories: () => {
     return request('/cms/category/list', true, 'get', {})
   },
+  // 15296
+  cmsCategoriesDetail: (id) => {
+    return request('/cms/category/detail', true, 'get', {id})
+  },
   cmsArticles: (data) => {
     return request('/cms/news/list', true, 'post', data)
   },

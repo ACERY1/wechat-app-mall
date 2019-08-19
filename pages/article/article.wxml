@@ -1,0 +1,32 @@
+<import src="../../wxParse/wxParse.wxml" />
+<view class="notice">
+  <view class="title">{{notice.title}}</view>
+  <view class="text">
+    <template is="wxParse" data="{{wxParseData:article.nodes}}" />
+  </view>
+  <view class="discount">
+    <view class="weui-panel" wx:key="*key" wx:if="{{!sysCoupon.pwd}}">
+      <view class="weui-panel__hd">{{sysCoupon.name}}</view>
+      <view class="weui-panel__bd">
+        <view class="weui-media-box weui-media-box_text">
+          <view class="weui-media-box__title weui-media-box__title_in-text">
+            <text class='price' wx:if="{{sysCoupon.moneyMin == sysCoupon.moneyMax}}">
+              ￥ {{sysCoupon.moneyMax}}
+            </text>
+            <text class='price' wx:else>￥ {{sysCoupon.moneyMin}} - {{sysCoupon.moneyMax}}</text>
+          </view>
+          <view class="weui-media-box__desc">满 {{sysCoupon.moneyHreshold}} 元使用</view>
+          <view class="weui-media-box__info">
+            <view class="weui-media-box__info__meta">
+              <view wx:if="{{sysCoupon.dateEndType == 0}}">{{sysCoupon.dateEnd}} 前有效</view>
+              <view wx:if="{{sysCoupon.dateEndType == 1}}">领取 {{sysCoupon.dateEndDays}} 天内有效</view>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <button class="weui-btn mini-btn" type="warn" size="mini" bindtap="getCounpon" data-id="{{sysCoupon.id}}">
+      立即领取
+    </button>
+  </view>
+</view>
