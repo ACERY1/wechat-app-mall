@@ -3,7 +3,7 @@
 .notice {
   width: 720rpx;
   padding: 15rpx;
-  font-size: 14px;
+  font-size: 14rpx;
 }
 .title {
   color:chocolate;
@@ -11,13 +11,21 @@
   text-align: center;
 }
 .text {
-  line-height: 30px;
+  line-height: 30rpx;
 }
 
 .discount {
-  padding: 100rpx 30px;
+  padding: 100rpx 30rpx;
   display: flex;
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
 }
+
+.weui-panel:first-child {
+  margin-top: 0;
+  width: 100%;
+  background: #fffcf7;
+  border-radius: 24rpx
+  }
+  

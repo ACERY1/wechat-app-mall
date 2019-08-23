@@ -38,7 +38,7 @@ Page({
   aboutUs : function () {
     wx.showModal({
       title: '关于我们',
-      content: '本系统基于开源小程序商城系统 https://github.com/EastWorld/wechat-app-mall 搭建，祝大家使用愉快！',
+      content: '我们是深圳谷品生活科技（深圳）有限公司，依托于创办人多年来从事3C数码行业的丰富经验和深厚技术储备，谷品具有着行业最顶尖的技术和产品研发能力。',
       showCancel:false
     })
   },
