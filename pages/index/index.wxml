@@ -104,8 +104,8 @@
   <view class="ourpart">
     <p class="ourpart-text">我们的伙伴</p>
     <div class="ourpart-box">
-      <image class="item" src="https://dcdn.it120.cc/2019/09/05/566ea2ed-f700-4bd7-a98c-5f2ce3deb4f1.png" />
-      <image class="item" src="https://dcdn.it120.cc/2019/09/05/48fc21bc-0a13-49a9-83ff-8c09fb5b6d18.png" />
+      <image class="item" bindtap="toGoodsList" src="https://dcdn.it120.cc/2019/09/05/566ea2ed-f700-4bd7-a98c-5f2ce3deb4f1.png" />
+      <image class="item" bindtap="toGoodsList2" src="https://dcdn.it120.cc/2019/09/05/48fc21bc-0a13-49a9-83ff-8c09fb5b6d18.png" />
       <image class="item" src="https://dcdn.it120.cc/2019/09/05/b287b10e-6472-4949-9bcb-ad18106e45be.png" />
     </div>
   </view>

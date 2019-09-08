@@ -1,0 +1,30 @@
+<view class='container'>
+  <view class="tabBox">
+    <view class="tabItem" wx:for="{{shopList}}" wx:key="id" bindtap="changeFocus" data-index="{{index}}">
+      <p class="{{nowFocus === index ? '' : 'unfocus' }}">{{item.name}}</p>
+    </view>
+  </view>
+  <view class="cont">
+    <view class="cont-left">
+      <view class="{{nowFocusCate === index ? 'item-focus' : 'item' }}" wx:key="id" wx:for="{{cateList}}"  bindtap="changeFocusCate" data-index="{{index}}">
+        <p>{{item.name}}</p>
+      </view>
+      <view class="item"></view>
+    </view>
+    <view class="cont-right">
+      <view class="goodBox" wx:if="{{goodsList && goodsList.length > 0}}" wx:for="{{goodsList}}" wx:key="id" data-id="{{item.id}}" bindtap="toDetailsTap" >
+        <view class="img">
+          <image src="{{item.pic}}"></image>
+        </view>
+        <view class="cont2">
+          <view class="name">{{item.name}}</view>
+          <div class="desc">{{item.characteristic}}</div>
+          <div class="price">{{item.minPrice}}</div>
+        </view>
+      </view>
+      <view wx:if="{{!goodsList || goodsList.length === 0}}" class="empty">
+        <p>暂无商品</p>
+      </view>
+    </view>
+  </view>
+</view>

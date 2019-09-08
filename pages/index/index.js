@@ -77,6 +77,12 @@ Page({
     wx.showShareMenu({
       withShareTicket: true
     }) 
+
+    // TODO:去掉
+    wx.navigateTo({
+      url: '/pages/goods-list/index'
+    })
+
     const that = this
     // if (e && e.query && e.query.inviter_id) { 
     //   wx.setStorageSync('referrer', e.query.inviter_id)
@@ -296,6 +302,22 @@ Page({
           pingtuanList: res.data
         })
       }
+    })
+  },
+  // 1号位
+  toGoodsList() {
+    getApp().globalData.nowFocus = 0
+    getApp().globalData.nowFocusCate = 0
+    wx.switchTab({
+      url: '/pages/goods-list/index'
+    })
+  },
+  // 2号位
+  toGoodsList2() {
+    app.globalData.nowFocus = 1
+    app.globalData.nowFocusCate = 0
+    wx.switchTab({
+      url: '/pages/goods-list/index'
     })
   }
 })
