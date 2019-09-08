@@ -18,11 +18,11 @@
       充值
     </button>
   </form>
-  <form bindsubmit="payDeposit" report-submit="true">
+  <!-- <form bindsubmit="payDeposit" report-submit="true">
     <button class='btn bth-right' type="default" size="mini" form-type="submit" hover-class="btn-hover" plain="true">
       押金
     </button>
-  </form>
+  </form> -->
   <form bindsubmit="withdraw" report-submit="true">
     <button class='btn bth-right' type="default" size="mini" form-type="submit" hover-class="btn-hover" plain="true">
       提现
@@ -61,7 +61,7 @@
             <view class='amount' style="color: red"> {{ item.money }} </view>
           </view>
         </view>
-        <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
+        <!-- <view class="weui-tab__content" hidden="{{activeIndex != 2}}">
           <view class='no-data' wx:if="{{!depositlogs}}">暂无押金记录~</view>
           <view class='cashlogs' wx:if="{{depositlogs}}" wx:for-items="{{depositlogs}}" wx:key="{{index}}">
             <view class='profile'>
@@ -70,7 +70,7 @@
             </view>
             <view class='amount' style="color: red"> {{ item.amount }} </view>
           </view>
-        </view>
+        </view> -->
       </view>
     </view>
   </view>

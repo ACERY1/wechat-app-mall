@@ -53,7 +53,7 @@
 
   <!-- 滑动banner区 展示促销文章 -->
   <view class="swiper-container">
-    <swiper class="swiper_box" autoplay="{{autoplay}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperchange">
+    <swiper class="swiper_box" autoplay="{{false}}" interval="{{interval}}" duration="{{duration}}" bindchange="swiperchange">
       <block wx:for="{{cmsArticals}}" wx:key="id">
         <swiper-item>
           <image bindtap="tapBanner" data-id="{{item.id}}" src="{{item.pic}}_m" class="slide-image" width="750rpx" height="562.5rpx" />
@@ -104,8 +104,9 @@
   <view class="ourpart">
     <p class="ourpart-text">我们的伙伴</p>
     <div class="ourpart-box">
-      <image class="item" src="https://dcdn.it120.cc/2019/08/21/082abbc1-d2f7-4661-b718-61cb37fcf52b.png" />
-      <image class="item" src="https://dcdn.it120.cc/2019/08/21/dd4f2f23-d836-4f46-a0f9-c47f0b2996b6.png" />
+      <image class="item" src="https://dcdn.it120.cc/2019/09/05/566ea2ed-f700-4bd7-a98c-5f2ce3deb4f1.png" />
+      <image class="item" src="https://dcdn.it120.cc/2019/09/05/48fc21bc-0a13-49a9-83ff-8c09fb5b6d18.png" />
+      <image class="item" src="https://dcdn.it120.cc/2019/09/05/b287b10e-6472-4949-9bcb-ad18106e45be.png" />
     </div>
   </view>
   <!-- 推荐 -->
@@ -175,8 +176,8 @@
   </block> -->
 
   <!-- 商品列表 -->
-  <view class="ourpart">
-    <p class="ourpart-text">热卖单品</p>
+  <view class="hotProd">
+    <p class="hotProd-text">热卖单品</p>
   </view>
   <!-- 2019年07月21日17:34:42注释了 by acery -->
   <!-- <view class="weui-loadmore weui-loadmore_line">
