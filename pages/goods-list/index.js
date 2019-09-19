@@ -54,6 +54,8 @@ Page({
       nowFocusCate: app.globalData.nowFocusCate || 0
     });
     that.getSefGoods();
+    app.globalData.nowFocus = undefined
+    app.globalData.nowFocusCate = undefined
     }
   },
 
