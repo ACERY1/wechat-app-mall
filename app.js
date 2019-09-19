@@ -148,7 +148,7 @@ App({
       }
     })
     // 已经处于登录状态，检测是否强制需要手机号码
-    if (CONFIG.requireBindMobile) {
+    if (false) {
       WXAPI.userDetail(token).then(function (res) {
         if (res.code == 0) {
           if (!res.data.base.mobile) {

@@ -77,8 +77,24 @@ Page({
       }
     })
   },
+  goLoginPageTimeOut: function() {
+    if (this.navigateToLogin){
+      return
+    }
+    wx.removeStorageSync('token')
+    this.navigateToLogin = true
+    setTimeout(function() {
+      wx.navigateTo({
+        url: "/pages/authorize/index"
+      })
+    }, 1000)
+  },
   getUserApiInfo: function () {
     var that = this;
+    if (!wx.getStorageSync('token')) {
+      that.goLoginPageTimeOut()
+      return;
+    }
     WXAPI.userDetail(wx.getStorageSync('token')).then(function (res) {
       if (res.code == 0) {
         let _data = {}
@@ -88,6 +104,11 @@ Page({
         }
         that.setData(_data);
       }
+      if(res.code === 2000) {
+        wx.navigateTo({
+          url: "/pages/authorize/bindmobile"
+        })
+      } 
     })
   },
   getUserAmount: function () {
