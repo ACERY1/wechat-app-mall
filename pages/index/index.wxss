@@ -97,11 +97,11 @@ swiper-item image {
   justify-content: space-between;  
   flex-wrap:wrap;
   box-sizing: content-box;
-  padding: 24rpx;
+  padding: 42rpx;
   /* background-color: #F2f2f2; */
 }
 .goods-box{
-  width: 318rpx;
+  width: 313rpx;
   height: 420;
   overflow: hidden;
   margin-bottom: 30rpx;
@@ -111,12 +111,12 @@ swiper-item image {
   background-color: #A7D9CF;
 }
 .goods-box .img-box{
-  width: 318rpx; 
-  height: 318rpx;
+  width: 313rpx;
+  height: 313rpx;
 }
 .goods-box .img-box image{
-   width: 318rpx; 
-   height: 318rpx;
+   width: 313rpx; 
+   height: 313rpx;
    
 }
 .goods-box .goods-title{
@@ -284,13 +284,13 @@ swiper-item image {
 
 .ourpart-text {
 font-family: PingFangSC-Medium;
-font-size: 34rpx;
+font-size: 42rpx;
 color: #82CCBE;
 letter-spacing: 0;
 }
 
 .ourpart-box {
-  height: 160rpx;
+  height: 197rpx;
   width: 880rpx;
   display: flex;
   flex-flow: row nowrap;
@@ -299,7 +299,7 @@ letter-spacing: 0;
 .ourpart-box .item {
   height: 197rpx;
   width: 288rpx;
-  margin-right: 60rpx;
+  margin-right: 40rpx;
   object-fit: contain;
 }
 
@@ -310,7 +310,7 @@ letter-spacing: 0;
 .hotProd-text {
   padding: 0 0 30rpx 34rpx;
   font-family: PingFangSC-Medium;
-  font-size: 34rpx;
+  font-size: 42rpx;
   color: #82CCBE;
   letter-spacing: 0;
 }

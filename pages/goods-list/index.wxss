@@ -65,7 +65,7 @@
   align-items: center;
   justify-content: center;
   background: #ffffff;
-  box-shadow: 0 15rpx 40rpx 0 rgba(0, 0, 0, 0.08);
+  /* box-shadow: 0 15rpx 40rpx 0 rgba(0, 0, 0, 0.08); */
   border-radius: 24rpx 0 0 24rpx;
 }
 

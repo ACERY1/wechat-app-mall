@@ -187,7 +187,7 @@ swiper-item image {
 }
 .footer-box .shop-cart-btn .shop-num{
   position: absolute;
-  color:#e64340;
+  color:#7f8389;
   left: 85rpx;
   top:10rpx;
 }
@@ -196,7 +196,7 @@ swiper-item image {
   width: 250rpx;
   height: 100%;
   line-height: 100rpx;
-  background-color: #ff6850;
+  background-color: #abd9cf;
   color:#fff;
   font-size: 34rpx;
 }
@@ -205,7 +205,7 @@ swiper-item image {
   height: 100%;
   width: 250rpx;
   line-height: 100rpx;
-  background-color: #e64340;
+  background-color: #65b3a5;
   color:#fff;
   font-size: 34rpx;
   margin-left:250rpx;
