@@ -278,8 +278,8 @@ swiper-item image {
 }
 
 .ourpart {
-  /* padding-top: 66rpx; */
-  padding: 0 0 40rpx 34rpx;
+  /* padding: 0 0 40rpx 34rpx; */
+  padding-bottom: 80rpx;
 }
 
 .ourpart-text {
@@ -287,6 +287,7 @@ font-family: PingFangSC-Medium;
 font-size: 42rpx;
 color: #82CCBE;
 letter-spacing: 0;
+padding: 0 0 40rpx 34rpx;
 }
 
 .ourpart-box {
@@ -294,6 +295,19 @@ letter-spacing: 0;
   width: 880rpx;
   display: flex;
   flex-flow: row nowrap;
+}
+
+.ourpart-box-outer {
+  width: 750rpx;
+  height: 197rpx;
+  overflow-x: scroll;
+  overflow-y: visible;
+  display: block;
+  margin-top: 20rpx;
+}
+
+.ourpart-box-outer::-webkit-scrollbar {
+  display: none;
 }
 
 .ourpart-box .item {
